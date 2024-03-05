@@ -1,3 +1,8 @@
 @import "./styles/_resets.scss";
 @import "./styles/_mixins.scss";
 @import "./styles/_variables.scss";
+
+input :focus :focus-visible {
+  outline-offset: 0;
+  outline: 2px solid $textColorStrong;
+}
