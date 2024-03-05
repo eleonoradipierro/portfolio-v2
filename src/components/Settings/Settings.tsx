@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./Settings.module.scss";
 import {
   ColorFormRowProps,
   ColorPaletteProps,
@@ -7,17 +8,26 @@ import {
 import {
   CUSTOM_FORM_LABEL_LIST,
   PRESET_PALETTE,
+  SETTINGS_OPTION,
   SETTINGS_OPTION_LIST,
 } from "../../costants";
 import PaletteIcon from "../SvgComponents/PaletteIcon";
 import ColorCircle from "../SvgComponents/ColorCircle";
+import SettingsIcon from "../SvgComponents/SettingsIcon";
 
 const Palette = (props: PaletteProps) => {
   const { primaryColor, secondaryColor, textColor, title } = props;
 
+  const handleChangeColorPalette = () => {
+    console.log(`new colors -> title: ${title}`);
+  };
+
   return (
-    <li>
-      <div>
+    <li className={styles.color_list_container}>
+      <button
+        className={styles.color_icon_container}
+        onClick={handleChangeColorPalette}
+      >
         <PaletteIcon
           height="50"
           width="40"
@@ -27,7 +37,7 @@ const Palette = (props: PaletteProps) => {
           stroke={textColor}
           strokeWidth={2}
         />
-      </div>
+      </button>
       <div style={{ color: textColor }}>{title}</div>
     </li>
   );
@@ -35,7 +45,7 @@ const Palette = (props: PaletteProps) => {
 
 const Presets = () => {
   return (
-    <ul>
+    <ul className={styles.color_list_grid}>
       {PRESET_PALETTE.map((color) => (
         <Palette {...{ ...color }} />
       ))}
@@ -46,27 +56,31 @@ const Presets = () => {
 const ColorFormRow = (props: ColorFormRowProps) => {
   const { label } = props;
   const [color, setColor] = useState("");
+  const textColor = "#3F3114";
 
   const handleHexadecimal = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-    if ((/^[0-9a-f]+$/.test(input) || input === "") && input.length <= 6) {
+    if ((/^[0-9a-fA-F]+$/.test(input) || input === "") && input.length <= 6) {
       setColor(input);
     }
   };
 
   return (
-    <div>
-      <label>
-        {label}
-      </label>
+    <div className={styles.form_container}>
+      <label className={styles.form_label}>{label}</label>
       <ColorCircle
         height="40"
         width="40"
         opacity="0.92"
         fill={"#" + color}
-        stroke={"#3F3114"}
+        stroke={textColor}
       />
-      <input type="text" value={color} onChange={(e) => handleHexadecimal(e)} />
+      <input
+        style={{ borderColor: textColor + "3F" }}
+        type="text"
+        value={color}
+        onChange={(e) => handleHexadecimal(e)}
+      />
     </div>
   );
 };
@@ -82,43 +96,79 @@ const Custom = () => {
 };
 
 const ColorPalette = (props: ColorPaletteProps) => {
-  const { colorPaletSection, setColorPaletSection } = props;
+  const {
+    colorPaletSection,
+    setColorPaletSection,
+    primaryColor,
+    secondaryColor,
+    textColor,
+  } = props;
 
   return (
     <div>
-      Color Palette
-      <div>
+      <p className={styles.title_container}>
+        Color Palette
+        <PaletteIcon
+          height="50"
+          width="40"
+          opacity="0.92"
+          fillPrimary={primaryColor}
+          fillSecondary={secondaryColor}
+          stroke={textColor}
+          strokeWidth={2}
+        />
+      </p>
+      <div className={styles.color_menu}>
         {SETTINGS_OPTION_LIST.map((key) => {
           return (
-            <button onClick={() => setColorPaletSection(key)}>{key}</button>
+            <button
+              style={
+                colorPaletSection === key ? { textDecoration: "underline" } : {}
+              }
+              className={styles.color_menu_button}
+              onClick={() => setColorPaletSection(key)}
+            >
+              {key}
+            </button>
           );
         })}
       </div>
       <div>
-        {colorPaletSection === "presets" && <Presets />}
-        {colorPaletSection === "custom" && <Custom />}
+        {colorPaletSection === SETTINGS_OPTION.preset && <Presets />}
+        {colorPaletSection === SETTINGS_OPTION.custom && <Custom />}
       </div>
     </div>
   );
 };
 
-const Settings = () => {
+const Settings = (props: PaletteProps) => {
+  const { backgroundColor, primaryColor, secondaryColor, textColor } = props;
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [colorPaletSection, setColorPaletSection] = useState("none");
+  const [colorPaletSection, setColorPaletSection] = useState(
+    SETTINGS_OPTION.preset
+  );
 
   return (
     <div>
       <button
         onClick={() => {
           setIsSettingsOpen(!isSettingsOpen);
-          setColorPaletSection("none");
         }}
       >
-        settings img
+        <SettingsIcon width="40px" height="40px" fill={backgroundColor} />
       </button>
 
       {isSettingsOpen && (
-        <ColorPalette {...{ colorPaletSection, setColorPaletSection }} />
+        <ColorPalette
+          {...{
+            colorPaletSection,
+            setColorPaletSection,
+            primaryColor,
+            secondaryColor,
+            textColor,
+            backgroundColor,
+          }}
+        />
       )}
     </div>
   );

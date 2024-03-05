@@ -1,0 +1,54 @@
+@import "../../styles/mixins";
+
+.color_list_container {
+  @include flex($gap: 5px, $align: center);
+
+  &:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+}
+
+.color_list_grid {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  align-items: center;
+  grid-gap: 5px 20px;
+}
+
+.color_icon_container {
+  @include flex($gap: 5px, $align: center);
+
+  &:hover {
+    filter: drop-shadow(0 1px 0.3px #3f31147a);
+  }
+}
+
+.form_container {
+  display: grid;
+  grid-template-columns: 100px 40px 150px;
+  grid-gap: 20px;
+  margin: 5px;
+  align-items: center;
+
+  & input {
+    border-radius: 50px;
+    padding: 5px 15px;
+    border: 2px solid;
+  }
+
+  & label {
+    text-align: end;
+  }
+}
+
+.color_menu {
+  @include flex($gap: 5px, $align: center);
+
+  &_button:hover {
+    text-decoration: underline;
+  }
+}
+
+.title_container {
+  text-decoration: underline;
+}
