@@ -1,6 +1,6 @@
-import { SettingsIconProps } from "../../types/SettingsType";
+import { SvgIconProps } from "../../types/SettingsType";
 
-const SettingsIcon = (props: SettingsIconProps) => {
+const SettingsIcon = (props: SvgIconProps) => {
   const { width, height, fill } = props;
 
   return (
