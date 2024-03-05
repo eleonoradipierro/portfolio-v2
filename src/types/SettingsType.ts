@@ -16,7 +16,7 @@ export type PaletteProps = {
   backgroundColor: string;
 };
 
-export type SettingsIconProps = {
+export type SvgIconProps = {
   width: string;
   height: string;
   fill: string;
