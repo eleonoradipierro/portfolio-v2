@@ -1,3 +1,4 @@
+import { NAVBAR_OPTIONS, SETTINGS_OPTION } from "./enums";
 import { PaletteProps } from "./types/SettingsType";
 
 export const PRESET_PALETTE: Array<PaletteProps> = [
@@ -69,4 +70,11 @@ export const CUSTOM_FORM_LABEL_LIST = [
 export const SETTINGS_OPTION_LIST = [
   SETTINGS_OPTION.preset,
   SETTINGS_OPTION.custom,
+];
+
+export const NAVBAR_OPTION_LIST = [
+  NAVBAR_OPTIONS.about,
+  NAVBAR_OPTIONS.skills,
+  NAVBAR_OPTIONS.projects,
+  NAVBAR_OPTIONS.experiences,
 ];

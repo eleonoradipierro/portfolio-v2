@@ -1,0 +1,5 @@
+@import "../../styles/_mixins";
+
+.options_container {
+  @include flex($gap: 5vw, $justify: center, $align: center);
+}
