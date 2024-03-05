@@ -66,4 +66,7 @@ export const CUSTOM_FORM_LABEL_LIST = [
   "text",
 ];
 
-export const SETTINGS_OPTION_LIST = ["presets", "custom"];
+export const SETTINGS_OPTION_LIST = [
+  SETTINGS_OPTION.preset,
+  SETTINGS_OPTION.custom,
+];

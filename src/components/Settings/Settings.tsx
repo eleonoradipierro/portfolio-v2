@@ -8,12 +8,12 @@ import {
 import {
   CUSTOM_FORM_LABEL_LIST,
   PRESET_PALETTE,
-  SETTINGS_OPTION,
   SETTINGS_OPTION_LIST,
 } from "../../costants";
 import PaletteIcon from "../SvgComponents/PaletteIcon";
 import ColorCircle from "../SvgComponents/ColorCircle";
 import SettingsIcon from "../SvgComponents/SettingsIcon";
+import { SETTINGS_OPTION } from "../../enums";
 
 const Palette = (props: PaletteProps) => {
   const { primaryColor, secondaryColor, textColor, title } = props;
