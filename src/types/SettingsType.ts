@@ -1,4 +1,4 @@
-import { SETTINGS_OPTION } from "../costants";
+import { SETTINGS_OPTION } from "../enums";
 import { State } from "./GlobalTypes";
 
 export type ColorPaletteProps = PaletteProps & {
