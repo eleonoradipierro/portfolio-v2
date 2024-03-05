@@ -1,4 +1,3 @@
-import { Children } from "react";
 import { PaletteProps } from "../../types/SettingsType";
 import GitHubIcon from "../SvgComponents/GitHubIcon";
 import LinkedinIcon from "../SvgComponents/LinkedinIcon";
