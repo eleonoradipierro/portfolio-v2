@@ -17,12 +17,12 @@ const ColorCircle = (props: CircleProps) => {
         rx="10.5"
         ry="11"
         fill={fill}
-        fill-opacity={opacity}
+        fillOpacity={opacity}
       />
       <path
         d="M20.5 11C20.5 16.8212 16.0012 21.5 10.5 21.5C4.99882 21.5 0.5 16.8212 0.5 11C0.5 5.17884 4.99882 0.5 10.5 0.5C16.0012 0.5 20.5 5.17884 20.5 11Z"
         stroke={stroke}
-        stroke-opacity="0.25"
+        strokeOpacity="0.25"
       />
     </svg>
   );

@@ -25,10 +25,10 @@ const ColorCircle = (props: CircleProps) => {
       <path
         d="M10 0C8.68678 -1.566e-08 7.38642 0.258658 6.17317 0.761205C4.95991 1.26375 3.85752 2.00035 2.92893 2.92893C2.00035 3.85752 1.26375 4.95991 0.761205 6.17317C0.258658 7.38642 -4.17426e-08 8.68678 0 10C4.17426e-08 11.3132 0.258658 12.6136 0.761205 13.8268C1.26375 15.0401 2.00035 16.1425 2.92893 17.0711C3.85752 17.9997 4.95991 18.7362 6.17317 19.2388C7.38642 19.7413 8.68678 20 10 20L10 10V0Z"
         fill={fillPrimary}
-        fill-opacity={opacity}
+        fillOpacity={opacity}
         stroke={stroke}
-        stroke-opacity="0.25"
-        stroke-width={strokeWidth}
+        strokeOpacity="0.25"
+        strokeWidth={strokeWidth}
         mask="url(#path-1-inside-1_74_140)"
       />
       <mask id="path-2-inside-2_74_140" fill="white">
@@ -37,10 +37,10 @@ const ColorCircle = (props: CircleProps) => {
       <path
         d="M12 24C13.3132 24 14.6136 23.7413 15.8268 23.2388C17.0401 22.7362 18.1425 21.9997 19.0711 21.0711C19.9997 20.1425 20.7362 19.0401 21.2388 17.8268C21.7413 16.6136 22 15.3132 22 14C22 12.6868 21.7413 11.3864 21.2388 10.1732C20.7362 8.95991 19.9997 7.85752 19.0711 6.92893C18.1425 6.00035 17.0401 5.26375 15.8268 4.7612C14.6136 4.25866 13.3132 4 12 4V14V24Z"
         fill={fillSecondary}
-        fill-opacity={opacity}
+        fillOpacity={opacity}
         stroke={stroke}
-        stroke-opacity="0.25"
-        stroke-width={strokeWidth}
+        strokeOpacity="0.25"
+        strokeWidth={strokeWidth}
         mask="url(#path-2-inside-2_74_140)"
       />
     </svg>
