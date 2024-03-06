@@ -1,4 +1,4 @@
-import { useTheme } from "../../global/customHooks";
+import { useTheme } from "../../hooks/useTheme";
 import PaletteIcon from "../SvgComponents/PaletteIcon";
 import styles from "./Logo.module.scss";
 

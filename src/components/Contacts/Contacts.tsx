@@ -1,4 +1,4 @@
-import { useTheme } from "../../global/customHooks";
+import { useTheme } from "../../hooks/useTheme";
 import GitHubIcon from "../SvgComponents/GitHubIcon";
 import LinkedinIcon from "../SvgComponents/LinkedinIcon";
 import MailIcon from "../SvgComponents/MailIcon";

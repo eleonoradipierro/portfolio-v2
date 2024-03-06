@@ -4,7 +4,6 @@ import {
   ColorFormRowProps,
   ColorPaletteProps,
   PaletteProps,
-  ThemeProps,
 } from "../../types/SettingsType";
 import {
   CUSTOM_FORM_LABEL_LIST,
@@ -15,7 +14,8 @@ import PaletteIcon from "../SvgComponents/PaletteIcon";
 import ColorCircle from "../SvgComponents/ColorCircle";
 import SettingsIcon from "../SvgComponents/SettingsIcon";
 import { SettingsOption } from "../../global/enums";
-import { useTheme, useThemeUpdate } from "../../global/customHooks";
+import { useThemeUpdate } from "../../hooks/useThemeUpdate";
+import { useTheme } from "../../hooks/useTheme";
 
 const Palette = (props: PaletteProps) => {
   const { palette } = props;

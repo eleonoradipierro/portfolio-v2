@@ -1,5 +1,5 @@
 import { NAVBAR_OPTION_LIST } from "../../global/costants";
-import { useTheme } from "../../global/customHooks";
+import { useTheme } from "../../hooks/useTheme";
 import { DotProps, DotScrollbarProps } from "../../types/DotScrollbarType";
 import ColorCircle from "../SvgComponents/ColorCircle";
 import PaletteIcon from "../SvgComponents/PaletteIcon";

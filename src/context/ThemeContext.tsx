@@ -1,16 +1,17 @@
-import { ReactNode, useState, createContext } from "react";
-import { PRESET_PALETTE } from "./costants";
+import { useState, createContext } from "react";
+import { PRESET_PALETTE } from "../global/costants";
 import { ThemeProps } from "../types/SettingsType";
 import { LabelType } from "../types/GlobalTypes";
-
-type ThemeProviderProps = {
-  children: ReactNode;
-};
+import {
+  PaletteContextType,
+  PaletteNewThemeContextType,
+  ThemeProviderProps,
+} from "../types/ThemeContextType";
 
 export const PaletteContext = createContext(PRESET_PALETTE[0]);
-export const PaletteUpdateContext = createContext((theme: ThemeProps) => {});
-export const PaletteNewThemeContext = createContext(
-  (label: LabelType, color: string) => {}
+export const PaletteUpdateContext = createContext<PaletteContextType>(() => {});
+export const PaletteNewThemeContext = createContext<PaletteNewThemeContextType>(
+  () => {}
 );
 
 const ThemeProvider = (props: ThemeProviderProps) => {
@@ -30,6 +31,11 @@ const ThemeProvider = (props: ThemeProviderProps) => {
       textColor: theme.secondaryColor,
       title: "",
     };
+
+    // TODO
+    // crea un oggetto del tipo {label : "background", index: "backgroundColor", value:"#pippo"}
+    // per poter fare questa cosa meglio -> newTheme[label] = color
+
     switch (label) {
       case "background":
         newTheme.backgroundColor = color;

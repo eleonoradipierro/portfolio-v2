@@ -9,7 +9,7 @@ import About from "../About/About";
 import Skills from "../Skills/Skills";
 import Projects from "../Projects/Projects";
 import Experiences from "../Experiences/Experiences";
-import { useTheme } from "../../global/customHooks";
+import { useTheme } from "../../hooks/useTheme";
 
 function App() {
   const theme = useTheme();
