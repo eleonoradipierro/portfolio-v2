@@ -4,6 +4,7 @@ import {
   ColorFormRowProps,
   ColorPaletteProps,
   PaletteProps,
+  ThemeProps,
 } from "../../types/SettingsType";
 import {
   CUSTOM_FORM_LABEL_LIST,
@@ -14,31 +15,31 @@ import PaletteIcon from "../SvgComponents/PaletteIcon";
 import ColorCircle from "../SvgComponents/ColorCircle";
 import SettingsIcon from "../SvgComponents/SettingsIcon";
 import { SettingsOption } from "../../global/enums";
+import { useTheme, useThemeUpdate } from "../../global/customHooks";
 
 const Palette = (props: PaletteProps) => {
-  const { primaryColor, secondaryColor, textColor, title } = props;
-
-  const handleChangeColorPalette = () => {
-    console.log(`new colors -> title: ${title}`);
-  };
+  const { palette } = props;
+  const toggleTheme = useThemeUpdate();
 
   return (
     <li className={styles.color_list_container}>
       <button
         className={styles.color_icon_container}
-        onClick={handleChangeColorPalette}
+        onClick={() => {
+          toggleTheme(palette);
+        }}
       >
         <PaletteIcon
           height="50"
           width="40"
           opacity="0.92"
-          fillPrimary={primaryColor}
-          fillSecondary={secondaryColor}
-          stroke={textColor}
+          fillPrimary={palette.primaryColor}
+          fillSecondary={palette.secondaryColor}
+          stroke={palette.textColor}
           strokeWidth={2}
         />
       </button>
-      <div style={{ color: textColor }}>{title}</div>
+      <div style={{ color: palette.textColor }}>{palette.title}</div>
     </li>
   );
 };
@@ -46,8 +47,8 @@ const Palette = (props: PaletteProps) => {
 const Presets = () => {
   return (
     <ul className={styles.color_list_grid}>
-      {PRESET_PALETTE.map((color) => (
-        <Palette {...{ ...color }} />
+      {PRESET_PALETTE.map((color, index) => (
+        <Palette key={`palette_${index}`} palette={color} />
       ))}
     </ul>
   );
@@ -88,21 +89,16 @@ const ColorFormRow = (props: ColorFormRowProps) => {
 const Custom = () => {
   return (
     <div>
-      {CUSTOM_FORM_LABEL_LIST.map((label) => (
-        <ColorFormRow {...{ label }} />
+      {CUSTOM_FORM_LABEL_LIST.map((label, index) => (
+        <ColorFormRow key={`custommenu_${index}`} label={label} />
       ))}
     </div>
   );
 };
 
 const ColorPalette = (props: ColorPaletteProps) => {
-  const {
-    colorPaletSection,
-    setColorPaletSection,
-    primaryColor,
-    secondaryColor,
-    textColor,
-  } = props;
+  const { colorPaletSection, setColorPaletSection } = props;
+  const currentTheme = useTheme();
 
   return (
     <div>
@@ -112,23 +108,26 @@ const ColorPalette = (props: ColorPaletteProps) => {
           height="50"
           width="40"
           opacity="0.92"
-          fillPrimary={primaryColor}
-          fillSecondary={secondaryColor}
-          stroke={textColor}
-          strokeWidth={2}
+          fillPrimary={currentTheme.primaryColor}
+          fillSecondary={currentTheme.secondaryColor}
+          stroke={currentTheme.textColor}
+          strokeWidth={0}
         />
       </p>
       <div className={styles.color_menu}>
-        {SETTINGS_OPTION_LIST.map((key) => {
+        {SETTINGS_OPTION_LIST.map((option, index) => {
           return (
             <button
               style={
-                colorPaletSection === key ? { textDecoration: "underline" } : {}
+                colorPaletSection === option
+                  ? { textDecoration: "underline" }
+                  : {}
               }
               className={styles.color_menu_button}
-              onClick={() => setColorPaletSection(key)}
+              onClick={() => setColorPaletSection(option)}
+              key={`settingsoption_${index}`}
             >
-              {key}
+              {option}
             </button>
           );
         })}
@@ -141,8 +140,8 @@ const ColorPalette = (props: ColorPaletteProps) => {
   );
 };
 
-const Settings = (props: PaletteProps) => {
-  const { backgroundColor, primaryColor, secondaryColor, textColor } = props;
+const Settings = () => {
+  const currentTheme = useTheme();
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [colorPaletSection, setColorPaletSection] = useState(
     SettingsOption.PRESETS
@@ -155,7 +154,11 @@ const Settings = (props: PaletteProps) => {
           setIsSettingsOpen(!isSettingsOpen);
         }}
       >
-        <SettingsIcon width="40px" height="40px" fill={backgroundColor} />
+        <SettingsIcon
+          width="40px"
+          height="40px"
+          fill={currentTheme.backgroundColor}
+        />
       </button>
 
       {isSettingsOpen && (
@@ -163,10 +166,6 @@ const Settings = (props: PaletteProps) => {
           {...{
             colorPaletSection,
             setColorPaletSection,
-            primaryColor,
-            secondaryColor,
-            textColor,
-            backgroundColor,
           }}
         />
       )}

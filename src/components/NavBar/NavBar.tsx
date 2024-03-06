@@ -8,10 +8,10 @@ const NavBar = (props: NavBarProps) => {
   return (
     <div>
       <nav className={styles.options_container}>
-        {NAVBAR_OPTION_LIST.map((option) => {
+        {NAVBAR_OPTION_LIST.map((option, index) => {
           return (
             <button
-              key={option}
+              key={`navbarelement_${index}`}
               onClick={() => {
                 setShownSection(option);
               }}

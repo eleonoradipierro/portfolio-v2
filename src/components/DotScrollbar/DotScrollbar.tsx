@@ -50,9 +50,10 @@ const DotScrollbar = (props: DotScrollbarProps) => {
 
   return (
     <ul className={styles.container}>
-      {NAVBAR_OPTION_LIST.map((option) => {
+      {NAVBAR_OPTION_LIST.map((option, index) => {
         return (
           <Dot
+            key={`dotmenu_${index}`}
             {...{
               shownSection,
               setShownSection,
