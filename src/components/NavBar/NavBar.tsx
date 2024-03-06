@@ -4,10 +4,7 @@ import { NavBarProps } from "../../types/NavBarType";
 import DotScrollbar from "../DotScrollbar/DotScrollbar";
 
 const NavBar = (props: NavBarProps) => {
-  const { shownSection, setShownSection } = props;
-  const textColor = "#3F3114";
-  const primaryColor = "#D4C5A6";
-  const secondaryColor = "#B1A07D";
+  const { shownSection, setShownSection, children } = props;
   return (
     <div>
       <nav className={styles.options_container}>
@@ -27,6 +24,7 @@ const NavBar = (props: NavBarProps) => {
           );
         })}
       </nav>
+      {children}
       <DotScrollbar
         {...{
           shownSection,
