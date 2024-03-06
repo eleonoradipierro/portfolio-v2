@@ -1,0 +1,18 @@
+@import "../../styles/_mixins";
+
+.container {
+  @include flex($direction: row, $align: center, $justify: center, $gap: 15vw);
+
+  @include media(desktop) {
+    @include flex(
+      $direction: column,
+      $align: center,
+      $justify: center,
+      $gap: 30px
+    );
+  }
+}
+
+.dot {
+  border-radius: 100%;
+}
