@@ -1,4 +1,4 @@
-import { NAVBAR_OPTION_LIST } from "../../costants";
+import { NAVBAR_OPTION_LIST } from "../../global/costants";
 import styles from "./NavBar.module.scss";
 import { NavBarProps } from "../../types/NavBarType";
 import DotScrollbar from "../DotScrollbar/DotScrollbar";

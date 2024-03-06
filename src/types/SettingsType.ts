@@ -1,9 +1,9 @@
-import { SETTINGS_OPTION } from "../enums";
-import { State } from "./GlobalTypes";
+import { SettingsOption } from "../global/enums";
+import { LabelType, State } from "./GlobalTypes";
 
-export type ColorPaletteProps = PaletteProps & {
-  colorPaletSection: SETTINGS_OPTION;
-  setColorPaletSection: State<SETTINGS_OPTION>;
+export type ColorPaletteProps = {
+  colorPaletSection: SettingsOption;
+  setColorPaletSection: State<SettingsOption>;
 };
 
 export type ColorFormRowProps = { label: string };

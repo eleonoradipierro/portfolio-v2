@@ -1,7 +1,8 @@
-import { NAVBAR_OPTIONS, SETTINGS_OPTION } from "./enums";
-import { PaletteProps } from "./types/SettingsType";
+import { NavBarOption, SettingsOption } from "./enums";
+import { ThemeProps } from "../types/SettingsType";
+import { LabelListType } from "../types/GlobalTypes";
 
-export const PRESET_PALETTE: Array<PaletteProps> = [
+export const PRESET_PALETTE: Array<ThemeProps> = [
   {
     title: "beige matte",
     primaryColor: "#D4C5A6",
@@ -60,7 +61,8 @@ export const PRESET_PALETTE: Array<PaletteProps> = [
   },
 ];
 
-export const CUSTOM_FORM_LABEL_LIST = [
+
+export const CUSTOM_FORM_LABEL_LIST: LabelListType = [
   "background",
   "primary",
   "secondary",
@@ -68,13 +70,13 @@ export const CUSTOM_FORM_LABEL_LIST = [
 ];
 
 export const SETTINGS_OPTION_LIST = [
-  SETTINGS_OPTION.preset,
-  SETTINGS_OPTION.custom,
+  SettingsOption.PRESETS,
+  SettingsOption.CUSTOM,
 ];
 
 export const NAVBAR_OPTION_LIST = [
-  NAVBAR_OPTIONS.about,
-  NAVBAR_OPTIONS.skills,
-  NAVBAR_OPTIONS.projects,
-  NAVBAR_OPTIONS.experiences,
+  NavBarOption.ABOUT,
+  NavBarOption.SKILLS,
+  NavBarOption.PROJECTS,
+  NavBarOption.EXPERIENCES,
 ];

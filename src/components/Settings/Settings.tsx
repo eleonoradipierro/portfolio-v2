@@ -9,11 +9,11 @@ import {
   CUSTOM_FORM_LABEL_LIST,
   PRESET_PALETTE,
   SETTINGS_OPTION_LIST,
-} from "../../costants";
+} from "../../global/costants";
 import PaletteIcon from "../SvgComponents/PaletteIcon";
 import ColorCircle from "../SvgComponents/ColorCircle";
 import SettingsIcon from "../SvgComponents/SettingsIcon";
-import { SETTINGS_OPTION } from "../../enums";
+import { SettingsOption } from "../../global/enums";
 
 const Palette = (props: PaletteProps) => {
   const { primaryColor, secondaryColor, textColor, title } = props;
@@ -134,8 +134,8 @@ const ColorPalette = (props: ColorPaletteProps) => {
         })}
       </div>
       <div>
-        {colorPaletSection === SETTINGS_OPTION.preset && <Presets />}
-        {colorPaletSection === SETTINGS_OPTION.custom && <Custom />}
+        {colorPaletSection === SettingsOption.PRESETS && <Presets />}
+        {colorPaletSection === SettingsOption.CUSTOM && <Custom />}
       </div>
     </div>
   );
@@ -145,7 +145,7 @@ const Settings = (props: PaletteProps) => {
   const { backgroundColor, primaryColor, secondaryColor, textColor } = props;
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [colorPaletSection, setColorPaletSection] = useState(
-    SETTINGS_OPTION.preset
+    SettingsOption.PRESETS
   );
 
   return (

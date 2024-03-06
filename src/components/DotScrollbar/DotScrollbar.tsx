@@ -1,4 +1,4 @@
-import { NAVBAR_OPTION_LIST } from "../../costants";
+import { NAVBAR_OPTION_LIST } from "../../global/costants";
 import { NAVBAR_OPTIONS } from "../../enums";
 import { State } from "../../types/GlobalTypes";
 import ColorCircle from "../SvgComponents/ColorCircle";
