@@ -16,7 +16,8 @@ const Dot = (props: DotProps) => {
   } = props;
 
   return (
-    <li onClick={() => setShownSection(option)}>
+    <li>
+      <button onClick={() => setShownSection(option)}>
       {shownSection === option ? (
         <PaletteIcon
           width="30px"
