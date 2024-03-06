@@ -6,14 +6,18 @@ export type ColorPaletteProps = {
   setColorPaletSection: State<SettingsOption>;
 };
 
-export type ColorFormRowProps = { label: string };
+export type ColorFormRowProps = { label: LabelType };
 
-export type PaletteProps = {
+export type ThemeProps = {
   primaryColor: string;
   secondaryColor: string;
   textColor: string;
   title?: string;
   backgroundColor: string;
+};
+
+export type PaletteProps = {
+  palette: ThemeProps;
 };
 
 export type SvgIconProps = {

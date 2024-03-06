@@ -1,9 +1,9 @@
-import { PaletteProps } from "../../types/SettingsType";
+import { useTheme } from "../../global/customHooks";
 import PaletteIcon from "../SvgComponents/PaletteIcon";
 import styles from "./Logo.module.scss";
 
-const Logo = (props: PaletteProps) => {
-  const { textColor, primaryColor, secondaryColor } = props;
+const Logo = () => {
+  const theme = useTheme();
   return (
     <div>
       <h1 className={styles.title}>
@@ -15,9 +15,9 @@ const Logo = (props: PaletteProps) => {
         width="300"
         strokeWidth={0}
         opacity="0.92"
-        stroke={textColor}
-        fillPrimary={primaryColor}
-        fillSecondary={secondaryColor}
+        stroke={theme.textColor}
+        fillPrimary={theme.primaryColor}
+        fillSecondary={theme.secondaryColor}
       />
     </div>
   );

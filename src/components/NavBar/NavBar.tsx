@@ -29,9 +29,6 @@ const NavBar = (props: NavBarProps) => {
         {...{
           shownSection,
           setShownSection,
-          textColor,
-          primaryColor,
-          secondaryColor,
         }}
       />
     </div>
