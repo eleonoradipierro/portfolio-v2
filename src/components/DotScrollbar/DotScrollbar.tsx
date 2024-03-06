@@ -1,26 +1,9 @@
 import { NAVBAR_OPTION_LIST } from "../../global/costants";
 import { NAVBAR_OPTIONS } from "../../enums";
-import { State } from "../../types/GlobalTypes";
+import { DotProps, DotScrollbarProps } from "../../types/DotScrollbarType";
 import ColorCircle from "../SvgComponents/ColorCircle";
 import PaletteIcon from "../SvgComponents/PaletteIcon";
 import styles from "./DotScrollbar.module.scss";
-
-export type DotProps = {
-  shownSection: NAVBAR_OPTIONS;
-  setShownSection: State<NAVBAR_OPTIONS>;
-  option: NAVBAR_OPTIONS;
-  textColor: string;
-  primaryColor: string;
-  secondaryColor: string;
-};
-
-export type DotScrollbarProps = {
-  shownSection: NAVBAR_OPTIONS;
-  setShownSection: State<NAVBAR_OPTIONS>;
-  textColor: string;
-  primaryColor: string;
-  secondaryColor: string;
-};
 
 const Dot = (props: DotProps) => {
   const {
