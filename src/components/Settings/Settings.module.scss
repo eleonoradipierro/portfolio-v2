@@ -1,5 +1,4 @@
-@import "../../styles/_mixins";
-@import "../../styles/_variables";
+@import "../../main.scss";
 
 .color_list_container {
   @include flex($gap: 5px, $align: center);

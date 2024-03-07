@@ -1,4 +1,4 @@
-// import styles from "./App.module.scss";
+import styles from "./App.module.scss";
 import Logo from "../Logo/Logo";
 import Settings from "../Settings/Settings";
 import Contacts from "../Contacts/Contacts";
@@ -15,7 +15,7 @@ function App() {
   const theme = useTheme();
   const [shownSection, setShownSection] = useState(NavBarOption.ABOUT);
   return (
-    <div style={{ color: theme.textColor }}>
+    <div style={{ color: theme.textColor }} className={styles.use_ly_font}>
       <div>
         <Settings />
         <Logo />
