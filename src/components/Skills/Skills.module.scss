@@ -1,0 +1,10 @@
+@import "../../main.scss";
+
+.container {
+  @include flex($align: center, $justify: center, $gap: 50px);
+  font-size: 20px;
+}
+
+.buttons_container {
+  @include flex($direction: column, $gap: 5vh 5vw, $align: flex-end);
+}
