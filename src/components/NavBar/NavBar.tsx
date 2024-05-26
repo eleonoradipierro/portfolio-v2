@@ -24,13 +24,15 @@ const NavBar = (props: NavBarProps) => {
           );
         })}
       </nav>
-      {children}
-      <DotScrollbar
-        {...{
-          shownSection,
-          setShownSection,
-        }}
-      />
+      <div className={styles.content_container}>
+        {children}
+        <DotScrollbar
+          {...{
+            shownSection,
+            setShownSection,
+          }}
+        />
+      </div>
     </div>
   );
 };

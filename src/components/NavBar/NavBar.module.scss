@@ -2,4 +2,28 @@
 
 .options_container {
   @include flex($gap: 5vw, $justify: center, $align: center);
+
+  @include media(desktop) {
+    @include flex($align: center, $justify: flex-end, $gap: 5vw);
+    margin-right: 100px;
+  }
+}
+
+.content_container {
+  @include flex(
+    $direction: column,
+    $align: center,
+    $justify: center,
+    $gap: 3vh
+  );
+  margin: 50px;
+
+  @include media(desktop) {
+    @include flex(
+      $direction: row,
+      $align: center,
+      $justify: flex-end,
+      $gap: 5vw
+    );
+  }
 }
