@@ -1,0 +1,35 @@
+@import "../../main.scss";
+
+.container {
+  @include flex($direction: row, $align: end);
+}
+
+.card {
+  border-radius: 50%;
+  text-align: center;
+  @include flex($justify: center, $align: center);
+}
+
+.card_outer_container {
+  @extend .card;
+
+  width: 10rem;
+  height: 10rem;
+
+  &_active {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+
+.card_inner_container {
+  @extend .card;
+
+  width: 8rem;
+  height: 8rem;
+
+  &_active {
+    width: 10.5rem;
+    height: 10.5rem;
+  }
+}
