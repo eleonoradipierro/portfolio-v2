@@ -44,7 +44,7 @@
 .color_menu {
   @include flex($gap: 5px, $align: center);
 
-  &_button:hover {
+  &_button {
     text-decoration: underline;
   }
 }
