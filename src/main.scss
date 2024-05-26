@@ -22,3 +22,7 @@ input :focus :focus-visible {
   font-style: normal;
   font-size: medium;
 }
+
+button:hover {
+  text-decoration: underline;
+}
