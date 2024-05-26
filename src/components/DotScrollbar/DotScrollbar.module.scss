@@ -1,7 +1,7 @@
 @import "../../styles/_mixins";
 
 .container {
-  @include flex($direction: row, $align: center, $justify: center, $gap: 15vw);
+  @include flex($direction: row, $align: center, $justify: center, $gap: 10vw);
 
   @include media(desktop) {
     @include flex(
