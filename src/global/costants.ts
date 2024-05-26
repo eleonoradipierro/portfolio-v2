@@ -1,4 +1,4 @@
-import { NavBarOption, SettingsOption } from "./enums";
+import { NavBarOption } from "./enums";
 import { ThemeProps } from "../types/SettingsType";
 import { LabelListType } from "../types/GlobalTypes";
 
@@ -61,7 +61,6 @@ export const PRESET_PALETTE: Array<ThemeProps> = [
   },
 ];
 
-
 export const CUSTOM_FORM_LABEL_LIST: LabelListType = [
   "background",
   "primary",
@@ -69,10 +68,10 @@ export const CUSTOM_FORM_LABEL_LIST: LabelListType = [
   "text",
 ];
 
-export const SETTINGS_OPTION_LIST = [
-  SettingsOption.PRESETS,
-  SettingsOption.CUSTOM,
-];
+// export const SETTINGS_OPTION_LIST = [
+//   SettingsOption.PRESETS,
+//   SettingsOption.CUSTOM,
+// ];
 
 export const NAVBAR_OPTION_LIST = [
   NavBarOption.ABOUT,
