@@ -1,5 +1,9 @@
 @import "../../main.scss";
 
 .container {
-  position: relative;
+  @include flex($direction: column);
+
+  @include media(tablet) {
+    @include flex($direction: row);
+  }
 }
