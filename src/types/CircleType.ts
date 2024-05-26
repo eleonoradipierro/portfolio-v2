@@ -5,6 +5,6 @@ export type CircleProps = {
   fillSecondary?: string;
   fill?: string;
   opacity: string;
-  stroke: string;
+  stroke?: string;
   strokeWidth?: string | number;
 };
