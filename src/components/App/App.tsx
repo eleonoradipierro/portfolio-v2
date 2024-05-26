@@ -15,7 +15,10 @@ function App() {
   const theme = useTheme();
   const [shownSection, setShownSection] = useState(NavBarOption.ABOUT);
   return (
-    <div style={{ color: theme.textColor }} className={styles.use_ly_font}>
+    <div
+      style={{ color: theme.textColor }}
+      className={`${styles.use_ly_font} ${styles.container}`}
+    >
       <div>
         <Settings />
         <Logo />
